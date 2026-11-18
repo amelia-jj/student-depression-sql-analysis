@@ -1,4 +1,4 @@
-# Student-Depression-Survey-SQL-Analysis
+# Student Depression Survey: SQL Analysis
 
 I analysed a survey dataset of 4,464 students (13 columns: gender, age, family background, relationship and marital status, living style, semester, CGPA, friend circle, health condition, living costs, home division, and a Yes/No depression answer) using MySQL (queried in PopSQL).
 
