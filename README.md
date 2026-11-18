@@ -34,12 +34,14 @@ Some groups are small (for example 78 men and 87 women aged 17-19), so their per
 
 
 **Results by question**
+
+Of the 4,464 students, 1,202 (almost 27%) answered "Yes". There are 2,002 men and 2,462 women, with depression rates of 27.3% and 26.6%.
+
 ```sql
 select gender, count(*) as number_of_students, sum(depression = 'Yes') as depression_total, round(avg(depression = 'Yes') * 100, 1) as depression_pct
 from student_depression.student_survey
 group by gender;
 ```
-Of the 4,464 students, 1,202 (almost 27%) answered "Yes". There are 2,002 men and 2,462 women, with depression rates of 27.3% and 26.6%.
  
 **Age**
 
