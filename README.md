@@ -9,13 +9,13 @@ Files: create_table.sql, load_data.sql, analysis.sql (all questions and queries 
 
 **Key findings**
 
-• 1,202 of 4,464 students (26.9%) answered "Yes" to depression.
+• 1,201 of 4,464 students (26.9%) answered "Yes" to depression.
 
 • Gender makes almost no difference: 27.3% of men and 26.6% of women.
 
 • Students with a below-average CGPA answered "Yes" more often than those above average, for both genders (women 31% vs 23%, men 31% vs 25%) and in every cost-of-living group. This is the most consistent pattern in the data.
 
-• Family background shows a gradient: rich 18%, middle class about 28%, lower class 31%.
+• Family background shows a gradient: rich class 18%, middle class 28%, lower middle class 31%.
 
 • Health condition separates the answers perfectly at the extremes (0% for good health, 100% for critical health). See the limitations below.
 
@@ -35,7 +35,7 @@ Some groups are small (for example 78 men and 87 women aged 17-19), so their per
 
 **Results by question**
 
-Of the 4,464 students, 1,202 (almost 27%) answered "Yes". There are 2,002 men and 2,462 women, with depression rates of 27.3% and 26.6%.
+Of the 4,464 students, 1,201 (almost 27%) answered "Yes". There are 2,002 men and 2,462 women, with depression rates of 27.3% and 26.6%.
 
 ```sql
 select gender, count(*) as number_of_students, sum(depression = 'Yes') as depression_total, round(avg(depression = 'Yes') * 100, 1) as depression_pct
@@ -79,6 +79,9 @@ Excluding semesters with 100 students or fewer, no clear pattern appears. The hi
 
 **CGPA**
 ```sql
+select round(avg(cgpa), 2) as average_cgpa
+from student_depression.student_survey;
+
 select
     case
         when cgpa >= (select avg(cgpa) from student_depression.student_survey) then 'Above Average'
